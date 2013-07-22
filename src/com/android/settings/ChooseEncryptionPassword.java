@@ -196,7 +196,7 @@ public class ChooseEncryptionPassword extends PreferenceActivity {
             final Activity activity = getActivity();
             mKeyboardHelper = new PasswordEntryKeyboardHelper(activity,
                     mKeyboardView, mPasswordEntry);
-            mKeyboardHelper.setKeyboardMode(PasswordEntryKeyboardHelper.KEYBOARD_MODE_ALPHA;
+            mKeyboardHelper.setKeyboardMode(PasswordEntryKeyboardHelper.KEYBOARD_MODE_ALPHA);
 
             mHeaderText = (TextView) view.findViewById(R.id.headerText);
             mKeyboardView.requestFocus();
@@ -219,7 +219,7 @@ public class ChooseEncryptionPassword extends PreferenceActivity {
             // Update the breadcrumb (title) if this is embedded in a PreferenceActivity
             if (activity instanceof PreferenceActivity) {
                 final PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
-                int id = R.string.encryptionpassword_choose_your_password_header
+                int id = R.string.encryptionpassword_choose_your_password_header;
                 CharSequence title = getText(id);
                 preferenceActivity.showBreadCrumbs(title, title);
             }

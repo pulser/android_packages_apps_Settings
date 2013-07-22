@@ -89,7 +89,7 @@ public class ChooseEncryptionPassword extends PreferenceActivity {
         private int mPasswordMinNumeric = 0;
         private int mPasswordMinNonLetter = 0;
         private LockPatternUtils mLockPatternUtils;
-        private int mRequestedQuality = DevicePolicyManager.PASSWORD_QUALITY_NUMERIC;
+        private int mRequestedQuality = DevicePolicyManager.PASSWORD_QUALITY_ALPHABETIC;
         private ChooseLockSettingsHelper mChooseLockSettingsHelper;
         private Stage mUiStage = Stage.Introduction;
         private TextView mHeaderText;
@@ -196,25 +196,18 @@ public class ChooseEncryptionPassword extends PreferenceActivity {
             final Activity activity = getActivity();
             mKeyboardHelper = new PasswordEntryKeyboardHelper(activity,
                     mKeyboardView, mPasswordEntry);
-            mKeyboardHelper.setKeyboardMode(mIsAlphaMode ?
-                    PasswordEntryKeyboardHelper.KEYBOARD_MODE_ALPHA
-                    : PasswordEntryKeyboardHelper.KEYBOARD_MODE_NUMERIC);
+            mKeyboardHelper.setKeyboardMode(PasswordEntryKeyboardHelper.KEYBOARD_MODE_ALPHA;
 
             mHeaderText = (TextView) view.findViewById(R.id.headerText);
             mKeyboardView.requestFocus();
 
             int currentType = mPasswordEntry.getInputType();
-            mPasswordEntry.setInputType(mIsAlphaMode ? currentType
-                    : (InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD));
+            mPasswordEntry.setInputType(currentType);
 
             Intent intent = getActivity().getIntent();
             final boolean confirmCredentials = false;
             if (savedInstanceState == null) {
                 updateStage(Stage.Introduction);
-                if (confirmCredentials) {
-                    mChooseLockSettingsHelper.launchConfirmationActivity(CONFIRM_EXISTING_REQUEST,
-                            null, null);
-                }
             } else {
                 mFirstPin = savedInstanceState.getString(KEY_FIRST_PIN);
                 final String state = savedInstanceState.getString(KEY_UI_STAGE);
@@ -226,8 +219,7 @@ public class ChooseEncryptionPassword extends PreferenceActivity {
             // Update the breadcrumb (title) if this is embedded in a PreferenceActivity
             if (activity instanceof PreferenceActivity) {
                 final PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
-                int id = mIsAlphaMode ? R.string.lockpassword_choose_your_password_header
-                        : R.string.lockpassword_choose_your_pin_header;
+                int id = R.string.encryptionpassword_choose_your_password_header
                 CharSequence title = getText(id);
                 preferenceActivity.showBreadCrumbs(title, title);
             }
@@ -368,8 +360,7 @@ public class ChooseEncryptionPassword extends PreferenceActivity {
                 }
             }
             if(mLockPatternUtils.checkPasswordHistory(password)) {
-                return getString(mIsAlphaMode ? R.string.lockpassword_password_recently_used
-                        : R.string.lockpassword_pin_recently_used);
+                return getString(R.string.lockpassword_password_recently_used);
             }
             return null;
         }

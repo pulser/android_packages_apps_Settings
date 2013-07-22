@@ -1053,6 +1053,9 @@
         <activity android:name="ChooseLockPassword" android:exported="false"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
+        <activity android:name="ChooseEncryptionPassword" android:exported="false"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
+
         <!-- Anonymous Statistics -->
         <receiver android:name=".cmstats.ReportingServiceManager"
             android:enabled="true"

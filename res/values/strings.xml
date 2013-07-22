@@ -820,6 +820,12 @@
     <!--  Summary for PreferenceScreen to changeecurity method: None/Pattern/PIN/Password [CHAR LIMIT=45]  -->
     <string name="unlock_set_unlock_launch_picker_enable_summary">Choose a method to lock the screen</string>
 
+    <!--  Title for PreferenceScreen to change encryption password [CHAR LIMIT=22]  -->
+    <string name="change_crypt_password_title">Change password</string>
+
+    <!--  Summary for PreferenceScreen to change encryption password [CHAR LIMIT=45]  -->
+    <string name="change_crypt_password_summary">Change the password used for device encryption</string>
+
     <!-- Info explaining the backup lock which is used for facelock -->
     <string name="unlock_backup_info_summary">When Face Unlock can\'t see you, how do you want to unlock?</string>
 

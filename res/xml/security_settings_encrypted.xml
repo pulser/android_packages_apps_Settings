@@ -27,7 +27,7 @@
         />
 
 	<Preference
-            android:fragment="com.android.settings.ChooseEncryptionPassword"
+            android:fragment="com.android.settings.ChooseEncryptionPassword$ChooseEncryptionPasswordFragment"
             android:key="change_crypt_password"
             android:title="@string/change_crypt_password_title"
             android:summary="@string/change_crypt_password_summary"

@@ -187,9 +187,7 @@ public class ChooseEncryptionPassword extends PreferenceActivity {
             mNextButton = (Button) view.findViewById(R.id.next_button);
             mNextButton.setOnClickListener(this);
 
-            mIsAlphaMode = DevicePolicyManager.PASSWORD_QUALITY_ALPHABETIC == mRequestedQuality
-                    || DevicePolicyManager.PASSWORD_QUALITY_ALPHANUMERIC == mRequestedQuality
-                    || DevicePolicyManager.PASSWORD_QUALITY_COMPLEX == mRequestedQuality;
+            mIsAlphaMode = true;
             mKeyboardView = (PasswordEntryKeyboardView) view.findViewById(R.id.keyboard);
             mPasswordEntry = (TextView) view.findViewById(R.id.password_entry);
             mPasswordEntry.setOnEditorActionListener(this);
@@ -210,7 +208,7 @@ public class ChooseEncryptionPassword extends PreferenceActivity {
                     : (InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD));
 
             Intent intent = getActivity().getIntent();
-            final boolean confirmCredentials = intent.getBooleanExtra("confirm_credentials", true);
+            final boolean confirmCredentials = false;
             if (savedInstanceState == null) {
                 updateStage(Stage.Introduction);
                 if (confirmCredentials) {
